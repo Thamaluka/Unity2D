@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 	public Rigidbody2D playerRigibory;
@@ -8,20 +9,26 @@ public class Player : MonoBehaviour {
 	private float vertical;
 	public float velocityPlayer, jumpVelocity, knifeVelocity;
 	public Transform grounCheck, hand;
-	private bool grounded, walk, lookAtLeft, gravityChange;
+	private bool grounded, walk, gravityChange;
+	public bool lookAtLeft;
 	public LayerMask whatIsGround;
 	private Animator playerAnimator;
-	public GameObject knife;
+	public GameObject knife, interPlayer;
+	public Text score;
+	public int points;
+
 
 	// Use this for initialization
 	void Start () {
 		playerRigibory = GetComponent<Rigidbody2D>();
 		playerAnimator = GetComponent<Animator> ();
+
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		score.text = "Score: " + points.ToString ();
 		horizontal = Input.GetAxisRaw ("Horizontal");
 
 		if (horizontal != 0) {
@@ -56,7 +63,12 @@ public class Player : MonoBehaviour {
 
 
 		if(Input.GetButtonDown("Fire1")){
-			troughKnife ();
+			if (interPlayer == null) {
+				troughKnife ();
+			} else {
+				interPlayer.SendMessage ("interaction",SendMessageOptions.DontRequireReceiver);
+			}
+
 		}
 
 
@@ -123,6 +135,31 @@ public class Player : MonoBehaviour {
 			break;
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		switch (col.gameObject.tag) {
+
+		case "Inter":
+			interPlayer = col.gameObject;
+			break;
+
+		case "Gold":
+			Destroy (col.gameObject);
+			points += 15;
+			break;
+
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col){
+		switch (col.gameObject.tag) {
+		case "Inter":
+			interPlayer = null;
+			break;
+		}
+	}
+
+		
 
 	
 	}
