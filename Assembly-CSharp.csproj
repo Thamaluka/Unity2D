@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BE2484D8-635E-9258-CAD6-862A2A1B85A5}</ProjectGuid>
+    <ProjectGuid>{21496244-D730-0375-D2B7-4C602EC3C334}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Colisoes.cs" />
+     <Compile Include="Assets\Scripts\Knife.cs" />
+     <Compile Include="Assets\Scripts\OnWay.cs" />
+     <Compile Include="Assets\Scripts\Plataforms.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

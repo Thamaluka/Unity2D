@@ -6,11 +6,12 @@ public class Player : MonoBehaviour {
 	public Rigidbody2D playerRigibory;
 	private float horizontal;
 	private float vertical;
-	public float velocityPlayer, jumpVelocity;
-	public Transform grounCheck;
+	public float velocityPlayer, jumpVelocity, knifeVelocity;
+	public Transform grounCheck, hand;
 	private bool grounded, walk, lookAtLeft, gravityChange;
 	public LayerMask whatIsGround;
 	private Animator playerAnimator;
+	public GameObject knife;
 
 	// Use this for initialization
 	void Start () {
@@ -54,6 +55,11 @@ public class Player : MonoBehaviour {
 		}
 
 
+		if(Input.GetButtonDown("Fire1")){
+			troughKnife ();
+		}
+
+
 		//Animator
 		playerAnimator.SetBool("walkAnimator",walk);
 		if (gravityChange) {
@@ -75,6 +81,7 @@ public class Player : MonoBehaviour {
 
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
+		knifeVelocity *= -1;
 		transform.localScale = theScale;
 	}
 
@@ -88,4 +95,35 @@ public class Player : MonoBehaviour {
 		playerRigibory.gravityScale *= -1;
 		jumpVelocity *= -1;
 	}
-}
+
+	void troughKnife(){
+		GameObject knifeTemp = Instantiate (knife, hand.position, transform.rotation);
+		if (lookAtLeft) {
+			knifeTemp.GetComponent<SpriteRenderer> ().flipX = true;
+		}
+
+		knifeTemp.GetComponent<Rigidbody2D>().velocity = new Vector2 (knifeVelocity,0.0f);
+
+		Destroy (knifeTemp, 5);
+
+		}
+
+	void OnCollisionEnter2D(Collision2D col){
+		switch (col.gameObject.tag) {
+		case "MovePlataform":
+			transform.SetParent (col.transform);
+			break;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D col){
+		switch (col.gameObject.tag) {
+		case "MovePlataform":
+			transform.SetParent (null);
+			break;
+		}
+	}
+
+	
+	}
+
