@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Barril.cs" />
      <Compile Include="Assets\Scripts\Box.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Colisoes.cs" />
      <Compile Include="Assets\Scripts\Enimy.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />

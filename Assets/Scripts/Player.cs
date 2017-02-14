@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 	public Rigidbody2D playerRigibory;
@@ -124,6 +125,11 @@ public class Player : MonoBehaviour {
 		switch (col.gameObject.tag) {
 		case "MovePlataform":
 			transform.SetParent (col.transform);
+			break;
+
+		case "Enimies":
+			PlayerPrefs.SetInt ("playerScore", points);
+			SceneManager.LoadScene ("Menu");
 			break;
 		}
 	}
