@@ -16,5 +16,19 @@ public class Knife : MonoBehaviour {
 
 	void OnCollisionEnter2D(){
 		GetComponent<Rigidbody2D> ().gravityScale = 1;
+		Destroy (this.gameObject);
+	}
+
+
+	void OnTriggerEnter2D(Collider2D col){
+		switch (col.gameObject.tag) {
+
+		case "Hit":
+			Destroy (col.gameObject);
+			Destroy (this.gameObject);
+			break;
+
+
+		}
 	}
 }

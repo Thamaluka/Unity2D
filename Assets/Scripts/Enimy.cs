@@ -10,10 +10,12 @@ public class Enimy : MonoBehaviour {
 	private SpriteRenderer enimiBack;
 
 
+
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType(typeof (Player)) as Player;
 		enimiBack = GetComponent<SpriteRenderer> ();
+
 
 	}
 	
@@ -39,4 +41,5 @@ public class Enimy : MonoBehaviour {
 		enimiBack.sprite = sprite [0];
 		transform.position = Vector3.MoveTowards (transform.position, player.transform.position, velocity * Time.deltaTime);
 	}
+
 }

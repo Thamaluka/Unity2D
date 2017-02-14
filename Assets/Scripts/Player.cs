@@ -116,7 +116,7 @@ public class Player : MonoBehaviour {
 
 		knifeTemp.GetComponent<Rigidbody2D>().velocity = new Vector2 (knifeVelocity,0.0f);
 
-		Destroy (knifeTemp, 5);
+		Destroy (knifeTemp, 1);
 
 		}
 
