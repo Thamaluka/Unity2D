@@ -129,6 +129,7 @@ public class Player : MonoBehaviour {
 
 		case "Enimies":
 			PlayerPrefs.SetInt ("playerScore", points);
+			print (points);
 			SceneManager.LoadScene ("Menu");
 			break;
 		}

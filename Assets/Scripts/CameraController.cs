@@ -13,8 +13,10 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (player.transform.position.x > L.position.x && transform.position.x < R.position.x && !player.lookAtLeft) {
+		if (player.transform.position.x > L.position.x && transform.position.x < R.position.x || player.transform.position.x < L.position.x && transform.position.x > R.position.x ) {
 			transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
+
+			print ("aqui");
 		}
 	}
 }

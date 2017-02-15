@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 
 	void Start(){
 		playerScore.text = PlayerPrefs.GetInt ("playerScore").ToString ();
+		print (playerScore);
 	}
 
 	public void play(){
