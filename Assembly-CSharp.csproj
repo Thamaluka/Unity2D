@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Knife.cs" />
      <Compile Include="Assets\Scripts\OnWay.cs" />
+     <Compile Include="Assets\Scripts\Parallax.cs" />
      <Compile Include="Assets\Scripts\Plataforms.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
  <Reference Include="UnityEngine.UI">

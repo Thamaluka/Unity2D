@@ -128,7 +128,7 @@ public class Player : MonoBehaviour {
 			break;
 
 		case "Enimies":
-			PlayerPrefs.SetInt ("playerScore", points);
+			//PlayerPrefs.SetInt ("playerScore", points);
 			print (points);
 			SceneManager.LoadScene ("Menu");
 			break;
